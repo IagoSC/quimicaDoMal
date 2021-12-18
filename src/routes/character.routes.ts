@@ -6,8 +6,8 @@ import { updateCharacterController } from "../useCases/UpdateCharacterUseCase";
 
 const charactersRoutes = Router();
 
-charactersRoutes.post("/", (req, res) => {
-  return createCharacterController.handle(req, res)
+charactersRoutes.post("/", (req, res, next) => {
+  return createCharacterController.handle(req, res, next)
 });
 
 charactersRoutes.get("/", (req, res) => {

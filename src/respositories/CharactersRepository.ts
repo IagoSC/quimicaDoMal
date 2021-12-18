@@ -1,10 +1,16 @@
 import { Character } from "../models/Character";
+import { Episode } from "../models/Episode";
 import { charactersRoutes } from "../routes/character.routes";
 import { ICharactersRepository } from "./ICharactersRepository";
 
 export interface IUpdateCharacterDTO {
   name?: string;
   status?: boolean;
+}
+
+export interface ICreateCharacterDTO {
+  name: string;
+  episodes: Episode[];
 }
 
 class CharactersRepository implements ICharactersRepository {
@@ -48,10 +54,11 @@ class CharactersRepository implements ICharactersRepository {
     return this.characters
   }
 
-  create(name: string): Character {
+  create({name, episodes}: ICreateCharacterDTO): Character {
     const character = new Character();
     Object.assign(character, {
-      name
+      name,
+      episodes
     })
     this.characters.push(character)
     return character

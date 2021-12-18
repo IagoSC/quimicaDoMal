@@ -1,14 +1,18 @@
 import { CreateCharactersService } from "./CreateCharactersService";
-import {Request, Response } from "express"
+import {NextFunction, Request, Response } from "express"
 
 
 class CreateCharacterController {
   constructor(private createCharacterService: CreateCharactersService){}
 
-  handle(req: Request, res: Response):Response {
+  async handle(req: Request, res: Response, next: NextFunction):Promise<Response> {
     const {name} = req.body
-    const character = this.createCharacterService.execute({name})
-    return res.status(200).json(character).send();
+    try{
+      const character =  await this.createCharacterService.execute({name}, next)
+      return res.status(200).json(character).send();
+    }catch(e){
+      next(e)
+    } 
   }
 }
 
