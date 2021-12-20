@@ -20,7 +20,7 @@ class CreateCharactersService {
     const characterAlreadyExists = this.charactersRepository.findByName(name);
     try{
       if(characterAlreadyExists){
-        throw new AppError("Character already exists", 409);
+        throw new AppError("Character name already exists", 409);
       }
       const episodes = await this.getCharacterEpisodes(name)
       const character = this.charactersRepository.create({name, episodes});
