@@ -1,8 +1,13 @@
 # quimicaDoMal - API
 
-A api tem como função fazer o crud básico (criação, edição, listagem e atualização) de personagens da série Breaking Bad
-
-- Todos os endpoints apontam para /characters, mudando apenas o método HTTP
+ A api tem como função fazer o crud básico (criação, edição, listagem e atualização) de personagens da série Breaking Bad
+ 
+ - Todos os endpoints apontam para /characters, mudando apenas o método HTTP
+ 
+# Rodar localmente
+ - git clone github.com/iagoSC/quimicaDoMal
+ - npm i
+ - npm run dev
 
 # POST /characters
  body: { name: string }
