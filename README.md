@@ -1,6 +1,8 @@
 # quimicaDoMal - API
 
- A api tem como função fazer o crud básico (criação, edição, listagem e atualização) de personagens da série Breaking Bad
+ Essa API foi criada como parte de um processo seletivo para Desenvolvedor Fullstack
+
+ A api tem como função fazer o crud básico (criação, edição, listagem e atualização) de personagens da série Breaking Bad.
  
  - Todos os endpoints apontam para /characters, mudando apenas o método HTTP
  
